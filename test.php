@@ -8,7 +8,7 @@ $sample = [
             "abc xyz",
             "abc xzz"
         ],
-        "same_start" => "abc",
+        "same_start" => "abc x",
         "same_end" => "z"
     ],
     [
@@ -16,6 +16,23 @@ $sample = [
             "123",
             "456"
         ],
+        "same_start" => "",
+        "same_end" => "",
+    ],
+    [
+       "input" => [
+           "(숙제테스트)20 3월물리학 기본반-6회 | JSH과학학원",
+           "(숙제테스트)21 3월 화학1 심화반 4-1회 | JSH과학학원",
+           "(숙제테스트)21 3월 화학1 기본반 4-2회 | JSH 과학학원"
+       ],
+        "same_start" => "(숙제테스트)2",
+        "same_end" => "과학학원"
+    ],
+    [
+       "input" => [
+           "",
+           "",
+       ],
         "same_start" => "",
         "same_end" => ""
     ],
@@ -26,7 +43,8 @@ $passed = 0;
 $total = count($sample);
 $start_time = microtime(true);
 
-foreach ($sample as $data){
+foreach ($sample as $k => $data){
+    echo "\n$k======================\n";
     echo "Data : \n";
     foreach ($data['input'] as $str){
         echo "\t - " . $str . "\n";
